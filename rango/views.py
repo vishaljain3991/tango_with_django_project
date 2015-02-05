@@ -12,7 +12,7 @@ def index(request):
 	return render(request, 'rango/index.html', context)
 	#return HttpResponse("Rango says hello world<br/ <a href='rango/about'>About</a>")
 def about(request):
-	return HttpResponse("hELLO i am rango")
+	return render(request, 'rango/about.html', {})
 
 def category(request, category_name_slug):
 	context = {}

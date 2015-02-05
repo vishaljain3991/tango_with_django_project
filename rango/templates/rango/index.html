@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-{% load staticfiles %} <!-- New Line -->
-<html>
-	<head>
-		<title>Rango</title>
-	</head>
-	<body>
-		{% if user.is_authenticated %}
-		<h1>Rango says... hello {{ user.username }}!</h1>
-		<a href="/rango/restricted/">Restricted Page</a><br />
-		<a href="/rango/logout/">Logout</a><br />
-		{% else %}
-		<h1>Rango says... hello world!</h1>
-		<a href="/rango/register/">Register Here</a><br />
-		<a href="/rango/login/">Login</a><br />
-		{% endif %}
-		hello world! <strong>{{ boldmessage}}</strong><br/>
-		<a href="/rango/about/">ABOUT</a><br/>
-		<a href="/rango/add_category/">Add a New Category</a><br />
-		<a href="/rango/register/">Register Here</a>
-		<a href="/rango/login/">Login</a>
-		<!-- <img src="{% static "rango/images/rango.jpg" %}"> -->
+
+{% extends 'rango/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Category{% endblock %}
+
+{% block body_block %}
+   <!-- <img src="{% static "rango/images/rango.jpg" %}"> -->
 		{% if categories%}
 			<ul>
 				{% for category in categories %}
@@ -30,5 +17,5 @@
 			<strong>There are no categories present</strong>
 		{% endif %}
 
-	</body>
-</html>
+
+{% endblock %}
