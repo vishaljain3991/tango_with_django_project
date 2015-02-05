@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load staticfiles %} <!-- New Line -->
+<html>
+	<head>
+		<title>Rango</title>
+	</head>
+	<body>
+		<h1>Rango says..</h1>
+		hello world! <strong>{{ boldmessage}}</strong><br/>
+		<a href="/rango/about/">ABOUT</a><br/>
+		<a href="/rango/add_category/">Add a New Category</a><br />
+		<!-- <img src="{% static "rango/images/rango.jpg" %}"> -->
+		{% if categories%}
+			<ul>
+				{% for category in categories %}
+					<li><a href="/rango/category/{{category.slug}}">{{ category.name }}</a></li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<strong>There are no categories present</strong>
+		{% endif %}
+
+	</body>
+</html>
